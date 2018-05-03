@@ -195,7 +195,7 @@ void decode(Mat image) {
     //step 3: final decoding
     
     //chage string to number & print the letters
-    cout<<endl;
+    cout<<"decoding result:"<<endl;
     for(int i=0;i<1051;i++){
         int e=stoi(barDecode2[i],0,2); //chage string to decimal number
         cout<<encodingarray[e];
@@ -229,13 +229,13 @@ Mat rotateFinal(Mat image, vector<Vec3f> c) {
     long dis=distance(line.begin(),max_element(line.begin(),line.end()));
     
     if (sqrt(pow(angle[dis]-45,2))<2){
-        cout<<"no need to rotate"<<endl;
+        cout<<"do not need to rotate"<<endl;
         return image;
     }
     else{
-    Mat image_ro1 = rotate(image,angle[dis]);
-        cout<<angle[dis]<<endl;
-    image_ro1 = rotate(image_ro1,45);
+    Mat image_ro1 = rotate(image,angle[dis]+45);
+        //cout<<angle[dis]+45<<endl;
+  //  image_ro1 = rotate(image_ro1,45);
     namedWindow("rotate1", 1);
     imshow("rotate1", image_ro1);
     waitKey(0);
